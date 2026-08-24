@@ -13,7 +13,8 @@ Q4)
 Our solution is correct since access to the critical section is blocked behind the lock using mutual exclusion.
 
 Q5)
-Yes it does since it only contains the one line that reads and writes
+Yes it does since it only contains the one line that reads and writes.
+We have not added to the get operation since this is only accesses after the threads are done, using the join statement, even tho one could argue that to be a thread safe class the method also needs to use the lock
 
 Q6)
 As seen in the codeblocks they decompile to the same bytecode instructions which means there is no difference between += and ++
@@ -41,4 +42,3 @@ Q8)
 
 
 EXERCISE 1.2:
-
