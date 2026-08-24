@@ -68,3 +68,6 @@ public void print() {
 
 Q3)
 the critical section is now the printing of '-', the sleep and the printing of '|' and is locked using mutual exclusion. This ensures that each thread will do both prints ensuring nothing is printed inbetween.
+
+EXERCISE 1.3:
+The critical section is guarded by a lock which ensures that the threads do not count the people entering wrongly and the check up against MAX_PEOPLE_COVID ensures that the thread will return whenever the limit is reached.
