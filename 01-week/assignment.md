@@ -54,3 +54,17 @@ t1(1),t2(1),t1(2),t2(2),t1(1),t2(1),t1(2),t2(2),t1(1),t2(1),t1(2),t2(2)
 this pattern can be expanded to any size :)
 
 EXERCISE 1.2:
+
+Q2)
+```
+public void print() {
+            System.out.print("-"); //1
+            try { Thread.sleep(50); } catch (InterruptedException exn) { } //2
+            System.out.print("|"); //3
+        }
+```
+
+..,t1(1), t2(1), t1(2), t2(2), t1(3), t2(3),..
+
+Q3)
+the critical section is now the printing of '-', the sleep and the printing of '|' and is locked using mutual exclusion. This ensures that each thread will do both prints ensuring nothing is printed inbetween.
