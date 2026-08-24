@@ -1,3 +1,5 @@
+EXERCISE 1.1:
+
 Q1)
 19793719
 
@@ -13,3 +15,42 @@ Our solution is correct since access to the critical section is blocked behind t
 Q5)
 Yes it does since it only contains the one line that reads and writes.
 We have not added to the get operation since this is only accesses after the threads are done, using the join statement, even tho one could argue that to be a thread safe class the method also needs to use the lock
+
+Q6)
+As seen in the codeblocks they decompile to the same bytecode instructions which means there is no difference between += and ++
+
+```
+ 11: getfield      #22                 // Field count:J
+   14         14: lconst_1
+   13         15: ladd
+   12         16: putfield      #22                 // Field count:J
+```
+```
+11: getfield      #22                 // Field count:J
+   14         14: lconst_1
+   13         15: ladd
+   12         16: putfield      #22                 // Field count:J  
+```
+
+
+Q7)
+The expected output should be within [-10.000.000,10.000.000] but in a perfect world (with locks) it should be 0.
+
+It is correct now since all the critical sections are guarded by a lock using mutual exclusion.
+
+Q8)
+The minimum count should be 3 since if we are very unlucky the threads will always read the same number and therefore do the same work. Yes the minimum number will always be equal to counts since if we are very unlucky the threads will end up doing the same work.
+
+```
+public void increment() {
+            long temp = count;  //1
+            count = temp + 1;   //2
+        } 
+```
+
+In the case of counts = 3:
+t1(1),t2(1),t1(2),t2(2),t1(1),t2(1),t1(2),t2(2),t1(1),t2(1),t1(2),t2(2)
+
+this pattern can be expanded to any size :)
+
+EXERCISE 1.2:

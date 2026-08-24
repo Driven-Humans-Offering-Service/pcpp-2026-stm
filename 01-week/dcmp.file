@@ -1,0 +1,45 @@
+Compiled from "TestLongCounterExperiments.java"
+class exercises01.TestLongCounterExperiments$LongCounter {
+  java.util.concurrent.locks.Lock l;
+
+  exercises01.TestLongCounterExperiments$LongCounter(exercises01.TestLongCounterExperiments);
+    Code:
+         0: aload_1
+         1: dup
+         2: invokestatic  #1                  // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+         5: pop
+         6: pop
+         7: aload_0
+         8: invokespecial #7                  // Method java/lang/Object."<init>":()V
+        11: aload_0
+        12: new           #13                 // class java/util/concurrent/locks/ReentrantLock
+        15: dup
+        16: invokespecial #15                 // Method java/util/concurrent/locks/ReentrantLock."<init>":()V
+        19: putfield      #16                 // Field l:Ljava/util/concurrent/locks/Lock;
+        22: aload_0
+        23: lconst_0
+        24: putfield      #22                 // Field count:J
+        27: return
+
+  public void increment();
+    Code:
+         0: aload_0
+         1: getfield      #16                 // Field l:Ljava/util/concurrent/locks/Lock;
+         4: invokeinterface #26,  1           // InterfaceMethod java/util/concurrent/locks/Lock.lock:()V
+         9: aload_0
+        10: dup
+        11: getfield      #22                 // Field count:J
+        14: lconst_1
+        15: ladd
+        16: putfield      #22                 // Field count:J
+        19: aload_0
+        20: getfield      #16                 // Field l:Ljava/util/concurrent/locks/Lock;
+        23: invokeinterface #31,  1           // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+        28: return
+
+  public long get();
+    Code:
+         0: aload_0
+         1: getfield      #22                 // Field count:J
+         4: lreturn
+}

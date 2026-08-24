@@ -7,9 +7,9 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class TestLongCounterExperiments {
-    
+
     LongCounter lc = new LongCounter();
-    int counts = 10_000_000;
+    int counts = 3;
 
     public TestLongCounterExperiments() {
 
@@ -40,8 +40,14 @@ public class TestLongCounterExperiments {
         private long count = 0;
 
         public void increment() {
+            long temp = count;
+            count = temp + 1;
+        }
+
+
+        public void decrement() {
             l.lock();
-            count += 1;
+            count--;
             l.unlock();
         }
 
