@@ -71,3 +71,10 @@ the critical section is now the printing of '-', the sleep and the printing of '
 
 EXERCISE 1.3:
 The critical section is guarded by a lock which ensures that the threads do not count the people entering wrongly and the check up against MAX_PEOPLE_COVID ensures that the thread will return whenever the limit is reached.
+
+EXERCISE 1.4:
+Q1)
+The ITU HPC is an example of where concurrency can help with fairness ensuring users do not block/overuse system resources. This is covered by Goetz and not in the concurrency note.
+In android development it is paramount to not block the ui/main thread since this would freeze the screen.
+
+
