@@ -39,6 +39,18 @@ The expected output should be within [-10.000.000,10.000.000] but in a perfect w
 It is correct now since all the critical sections are guarded by a lock using mutual exclusion.
 
 Q8)
+The minimum count should be 3 since if we are very unlucky the threads will always read the same number and therefore do the same work. Yes the minimum number will always be equal to counts since if we are very unlucky the threads will end up doing the same work.
 
+```
+public void increment() {
+            long temp = count;  //1
+            count = temp + 1;   //2
+        } 
+```
+
+In the case of counts = 3:
+t1(1),t2(1),t1(2),t2(2),t1(1),t2(1),t1(2),t2(2),t1(1),t2(1),t1(2),t2(2)
+
+this pattern can be expanded to any size :)
 
 EXERCISE 1.2:

@@ -9,13 +9,13 @@ import java.util.concurrent.locks.ReentrantLock;
 public class TestLongCounterExperiments {
 
     LongCounter lc = new LongCounter();
-    int counts = 10_000_000;
+    int counts = 3;
 
     public TestLongCounterExperiments() {
 
         Thread t1 = new Thread(() -> {
             for (int i=0; i<counts; i++) {
-                lc.decrement();
+                lc.increment();
             }
         });
         Thread t2 = new Thread(() -> {
@@ -40,10 +40,10 @@ public class TestLongCounterExperiments {
         private long count = 0;
 
         public void increment() {
-            l.lock();
-            count++;
-            l.unlock();
+            long temp = count;
+            count = temp + 1;
         }
+
 
         public void decrement() {
             l.lock();
