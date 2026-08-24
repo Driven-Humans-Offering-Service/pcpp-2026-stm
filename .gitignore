@@ -257,3 +257,7 @@ gradle-app.setting
 
 # End of https://www.toptal.com/developers/gitignore/api/gradle,java,jetbrains+all,visualstudiocode,vim,linux,windows,macos
 
+/01-week/code-exercises/week01exercises/.idea
+/01-week/code-exercises/week01exercises/gradle/wrapper
+/01-week/code-exercises/week01exercises/gradlew
+/01-week/code-exercises/week01exercises/gradlew.bat
