@@ -7,7 +7,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class TestLongCounterExperiments {
-    
+
     LongCounter lc = new LongCounter();
     int counts = 10_000_000;
 
@@ -15,7 +15,7 @@ public class TestLongCounterExperiments {
 
         Thread t1 = new Thread(() -> {
             for (int i=0; i<counts; i++) {
-                lc.increment();
+                lc.decrement();
             }
         });
         Thread t2 = new Thread(() -> {
@@ -41,7 +41,13 @@ public class TestLongCounterExperiments {
 
         public void increment() {
             l.lock();
-            count += 1;
+            count++;
+            l.unlock();
+        }
+
+        public void decrement() {
+            l.lock();
+            count--;
             l.unlock();
         }
 
