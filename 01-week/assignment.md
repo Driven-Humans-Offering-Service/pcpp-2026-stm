@@ -69,6 +69,21 @@ public void print() {
 Q3)
 the critical section is now the printing of '-', the sleep and the printing of '|' and is locked using mutual exclusion. This ensures that each thread will do both prints ensuring nothing is printed inbetween.
 
+Q4)
+It is impossible to do this:
+```
+public void print() {
+            System.out.print("-"); //1
+            try { Thread.sleep(50); } catch (InterruptedException exn) { } //2
+            System.out.print("|"); //3
+        }
+```
+  -     -       |      -      |      -      |      -      |      |
+t1(1), t2(1), t2(2), t2(1), t2(2), t2(1), t2(2), t2(1), t2(2), t1(2)
+
+In the above interleaving it is seen that we can make the first half of the sequence no problem but since both threads only run four times, the pipe from thread 1 appears before it should.
+This is also due to the fact that each thread has to run 4 times EACH. If it was shared work and they had to run 8 times in total the interleaving would be possible to recreate.
+
 EXERCISE 1.3:
 The critical section is guarded by a lock which ensures that the threads do not count the people entering wrongly and the check up against MAX_PEOPLE_COVID ensures that the thread will return whenever the limit is reached.
 
@@ -96,3 +111,20 @@ Hidden:
 - Linux Kernel
 - Google docs
 - Gmail
+
+Exercise 1.5:
+Q1)
+Linux
+
+Q2)
+Num of cores: 16
+Caches (sum of all):
+L1d:                       384 KiB (8 instances)
+L1i:                       256 KiB (8 instances)
+L2:                        8 MiB (8 instances)
+L3:                        16 MiB (1 instance)
+Amount of memory: 23Gb RAM and 8Gb VRAM
+
+Q3)
+1854ns
+
