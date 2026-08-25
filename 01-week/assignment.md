@@ -74,7 +74,25 @@ The critical section is guarded by a lock which ensures that the threads do not 
 
 EXERCISE 1.4:
 Q1)
-The ITU HPC is an example of where concurrency can help with fairness ensuring users do not block/overuse system resources. This is covered by Goetz and not in the concurrency note.
-In android development it is paramount to not block the ui/main thread since this would freeze the screen.
+Since the 3 categories from each reading material can be matched almost one-to-one it is almost impossible to come up with examples where they do not overlap. The following matching between the reading material's definitions can be done:
 
+Convinence note - Goetz:
+Exploitation - Fairness
+Inherent - Resource Utilisation
+Convinience - Hidden
 
+Q2)
+Exploitation:
+- Ethereum miner
+- Bachelor in matrix operations on the GPU
+- Unreal engine
+
+Inherent:
+- Google maps app
+- Computer games
+- Web application
+
+Hidden:
+- Linux Kernel
+- Google docs
+- Gmail
