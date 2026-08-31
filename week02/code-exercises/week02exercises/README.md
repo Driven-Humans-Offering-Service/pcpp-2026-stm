@@ -12,9 +12,13 @@ and the writer gets to write.
 Technically yes, because 'synchronized' use one condition variable behind the scenes. 
 All of the methods use them.
 ### 2.1.4 (Challenging)
-Yes if there is assumed infinite time.
-This is because eventually all new reads will wait for the waiting 
+It is possible, if we always move everything from the condition queue to the lock queue, and have the fairness
+flag set, otherwise it is not possible, because there is not a fairness flag for the condition queue, 
+only for the lock queue.
+This means there is a case where we have three writers, and the first two keeps getting to write,
+but the third is never allowed to. Making it starve.
 ### 2.1.5 (Challenging)
+_see file 'ReentantMonitor.java'_ 
 
 ## Exercise 2.2
 ### 2.2.1
