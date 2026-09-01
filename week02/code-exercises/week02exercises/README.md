@@ -19,7 +19,8 @@ This means there is a case where we have three writers, and the first two keeps 
 but the third is never allowed to. Making it starve.
 ### 2.1.5 (Challenging)
 _see file 'ReentantMonitor.java'_ 
-
+We only signal the condition variables when unlocking the lock. It is free from deadlocks since we always 
+unlock the lock even if a thread throws an exception.
 ## Exercise 2.2
 ### 2.2.1
 Yes its possible for it to hang forever, this is the case because the running
